@@ -1,0 +1,18 @@
+
+.graph {
+    border-radius: 50px;
+    border-color: rgb(47, 47, 137);
+    border-style: dotted;
+    background-color: #ffdefb;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#svg_graph{
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+}
+
+

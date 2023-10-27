@@ -1,0 +1,58 @@
+#select-x {
+    height: 30px;
+    text-align: right;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid rgb(84, 84, 241);
+    outline: none;
+}
+
+#select-x:focus {
+    border: 2px solid rgb(218, 115, 115);
+}
+
+#select-x option {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/*стиль для ввода игрека*/
+.fields-input {
+    width: 100px;
+    padding: 10px 0;
+    text-align: center;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid rgb(84, 84, 241);
+    outline: none;
+}
+
+.fields-y {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fields-input:focus {
+    border: 2px solid rgb(218, 115, 115);
+}
+
+/*стиль для ввода радиуса*/
+.fields-radius {
+    display: inherit;
+    text-align: left;
+    max-width: 200px;
+    color: rgb(47, 47, 137);
+}
+.line-of-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.R {
+    display: flex;
+    box-sizing: content-box;
+    justify-content: center;
+    align-items: center;
+}

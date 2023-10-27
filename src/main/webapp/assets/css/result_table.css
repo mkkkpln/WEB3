@@ -1,0 +1,21 @@
+#result_table{
+    border:5px solid #ffdefb;
+    border-radius: 20px;
+    padding: 0px;
+    height: 400px;
+    width: 100%;
+    display: block;
+    overflow: auto;
+
+}
+#result_table th,#result_table td{
+    border: 1px solid black;
+    padding: 0px;
+    height: 30px;
+    width: 1%;
+    text-align: center;
+
+}
+#result_table th{
+    background-color: #ffdefb;
+}
