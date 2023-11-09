@@ -15,7 +15,7 @@
     <meta name="author" content="Копалина Майя Алексеевна" />
     <meta
             name="description"
-            content="Веб-программирование: Лабораторная работа №1"
+            content="Веб-программирование: Лабораторная работа №3"
     />
     <meta
             name="keywords"
@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="assets/css/graph.css" />
     <link rel="stylesheet" href="assets/css/form.css" />
     <link rel="stylesheet" href="assets/css/result_table.css">
+    <link rel="stylesheet" href="assets/css/clock.css">
 
-    <!-- Иконка страницы -->
     <link rel="icon" href="assets/img/itmoLogo.png" />
 </head>
 
@@ -47,7 +47,7 @@
             </p>
             <p class="header-title">
                 Вариант: <br />
-                1307
+                27837
             </p>
         </div>
     </div>
@@ -56,7 +56,15 @@
 <section class="laboratory-info">
     <div class="container">
         <div class="lab" >
-            <h2 class="lab-title">Лабораторная работа №2</h2>
+            <h2 class="lab-title">Лабораторная работа №3</h2>
+        </div>
+    </div>
+    <div class="page">
+        <div class="container">
+            <canvas id="clock" title="clock" width="300px" height="300px" style="padding-top: 25px"></canvas>
+            <div id="time-container"></div>
+            <script src="js/clock.js" type="text/javascript"></script>
+<%--            <h:link outcome="main">Go to main page</h:link>--%>
         </div>
     </div>
 </section>

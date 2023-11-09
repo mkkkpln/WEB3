@@ -137,7 +137,6 @@ function checkR(){
     return(r!==undefined);
 }
 
-
 function chooseButton(element,className){
     if(className==='R') {
         r = element.value;
@@ -160,7 +159,6 @@ function showError() {
     showErr.innerHTML = '';
     showErr.classList.remove("show");
 }
-
 
 
 function getDataFromFormAndClick(event) {

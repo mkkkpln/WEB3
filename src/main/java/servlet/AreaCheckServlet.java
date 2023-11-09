@@ -1,8 +1,8 @@
 package servlet;
 
 import beans.BeanResult;
-import beans.PointBean;
 import beans.Coordinates;
+import beans.PointBean;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
