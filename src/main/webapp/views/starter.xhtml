@@ -5,33 +5,29 @@
       xmlns:f="http://java.sun.com/jsf/core" xml:lang="en"
       lang="en"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
 >
-<f:view>
-   <h:head>
-      <title>Стартовая страница</title>
-      <link href="../img/itmoLogo.png" rel="shortcut icon" type="image/x-icon"/>
-      <link rel="stylesheet" href="../css/style.css"/>
-      <link rel="stylesheet" href="../css/clock.css"/>
-   </h:head>
+<h:head>
+   <title>Веб-сайт | Стартовая страница</title>
+   <h:outputStylesheet library="css" name="starter.css"/>
+
+</h:head>
 
    <h:body>
       <div id="header">
          <span id="variant-info">Вариант 27837</span>
          <span id="student-info">Копалина Майя, P3232</span>
       </div>
-      <div class="page">
+      <div class="page-clock" >
          <div class="card">
             <div align="center">
                <canvas id="clock" title="clock" width="300px" height="300px" style="padding-top: 25px"></canvas>
             </div>
             <div id="time-container"></div>
-            <script src="../js/clock.js" type="text/javascript"></script>
+            <h:outputScript library="js" name="clock.js" target="body"/>
             <h:link outcome="main">Вернуться на главную страницу</h:link>
          </div>
       </div>
-
    </h:body>
-</f:view>
+
 
 </html>

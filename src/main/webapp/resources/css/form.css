@@ -1,6 +1,35 @@
+.fields {
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    opacity: 0.7;
+    padding: 20px;
+    background-color: #ffdefb;
+    background-position: center center;
+    border-color: rgb(47, 47, 137);
+    border-style: dotted;
+}
+
+.fields-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 40px;
+    text-align: center;
+}
+
+.fields-label {
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 100%;
+    color: blue;
+}
+
 #select-x {
     height: 30px;
-    text-align: right;
+    text-align: left;
     font-family: monospace;
     font-size: 14px;
     font-weight: 700;
@@ -42,7 +71,6 @@
 .fields-radius {
     display: inherit;
     text-align: left;
-    max-width: 200px;
     color: rgb(47, 47, 137);
 }
 .line-of-buttons {
@@ -56,3 +84,4 @@
     justify-content: center;
     align-items: center;
 }
+

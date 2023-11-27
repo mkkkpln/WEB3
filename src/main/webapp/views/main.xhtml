@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC
+        "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="jakarta.faces.core"
+        xmlns:h="jakarta.faces.html"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <title>Веб-сайт | Главная страница</title>
+    <link href="../img/itmoLogo.png" rel="shortcut icon" type="image/x-icon"/>
+    <h:outputStylesheet library="css" name="graph.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="form.css"/>
+    <h:outputStylesheet library="css" name="clock.css"/>
+    <h:outputStylesheet library="css" name="result_table.css"/>
+</h:head>
+
+<h:body styleClass="h-body">
+    <div class="container">
+        <div class="header-wrapper">
+            <h3 class="header-title">
+                ФИО: <br />
+                Копалина Майя
+            </h3>
+            <p class="header-title">
+                Группа: <br />
+                P3232
+            </p>
+            <p class="header-title">
+                Вариант: <br />
+                27837
+            </p>
+        </div>
+    </div>
+
+    <div class="page" >
+        <div class="fields-and-graph">
+
+            <div class="fields">
+                <div class="container">
+                    <h:form class="fields-form" id="fields-form" >
+
+                        <div class="form-wrapper">
+                            <p class="fields-label" align="left">Выберите значение X</p>
+                            <h:selectOneRadio id="select-x" name="x"
+                                              value="#{pointBean.x}"
+                                              required="true"
+                                              requiredMessage="Требуется значение X">
+                                <f:selectItem itemValue="-3" itemLabel="-3"/>
+                                <f:selectItem itemValue="-2" itemLabel="-2"/>
+                                <f:selectItem itemValue="-1" itemLabel="-1"/>
+                                <f:selectItem itemValue="0" itemLabel="0"/>
+                                <f:selectItem itemValue="1" itemLabel="1"/>
+                                <f:selectItem itemValue="2" itemLabel="2"/>
+                                <f:selectItem itemValue="3" itemLabel="3"/>
+                                <f:selectItem itemValue="4" itemLabel="4"/>
+                                <f:selectItem itemValue="5" itemLabel="5"/>
+                            </h:selectOneRadio>
+                            <h:message for="select-x" style="color: red"/>
+                        </div>
+
+                        <div class="fields-y">
+                            <span class="fields-label">Введите значение Y</span>
+
+                            <p:inputText styleClass="fields-input" style="color: black"
+                                         id="y" name="y"
+                                         value="#{pointBean.y}"
+                                         a:placeholder="Value in [-5..5]"
+                                         converterMessage="Y должно быть числом"
+                                         validatorMessage="Y должно быть число от -5 до 5 включительно"
+                                         required="true" requiredMessage="Требуется значение Y" maxlength="6"
+                                         onkeyup="this.value = this.value.replace(/[^0-9\.\-]/g, '')">
+                                <f:validateDoubleRange minimum="-5" maximum="5"/>
+                            </p:inputText>
+                            <h:message for="y" style="color: red"/>
+                            <div class="invalid-y d-none h5" style="color: red"></div>
+                        </div>
+
+                        <div class="fields-r">
+                            <div class="fields-radius">
+                                <p><label class="fields-label">Выберите значение R</label>
+                                    <h:inputHidden id="R-field" value="#{pointBean.r}" onchange="chooseButton(this,'R')"/>
+                                    <p:slider name="r" for="R-field" minValue="1" maxValue="4" step="0.5" />
+                                    <h:message id="message-r" for="R-field" style="color: red"/>
+                                </p>
+                            </div>
+                        </div>
+
+                        <h:commandButton styleClass="btn-send" value="Submit" id="send-button"
+                                         action="#{beansCollection.addBean(pointBean)}" />
+                        <br/>
+                    </h:form>
+                    <h:form>
+                        <h:commandButton styleClass="clear-button" value="Clear All" action="#{beansCollection.clearBeans()}" />
+                    </h:form>
+                </div>
+            </div>
+
+
+            <div class="graph">
+                <h:form id="svg-form">
+                    <h:commandLink onclick="return onClick(event);" action="#{beansCollection.addBean(pointBean)}">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="svg" height="300">
+                            <line x1="0" y1="150" x2="300" y2="150" stroke="#000720"></line>
+                            <line x1="150" y1="0" x2="150" y2="300" stroke="#000720"></line>
+                            <line x1="270" y1="148" x2="270" y2="152" stroke="#000720"></line>
+                            <text x="265" y="140">R</text>
+                            <line x1="210" y1="148" x2="210" y2="152" stroke="#000720"></line>
+                            <text x="200" y="140">R/2</text>
+                            <line x1="90" y1="148" x2="90" y2="152" stroke="#000720"></line>
+                            <text x="75" y="140">-R/2</text>
+                            <line x1="30" y1="148" x2="30" y2="152" stroke="#000720"></line>
+                            <text x="20" y="140">-R</text>
+                            <line x1="148" y1="30" x2="152" y2="30" stroke="#000720"></line>
+                            <text x="156" y="35">R</text>
+                            <line x1="148" y1="90" x2="152" y2="90" stroke="#000720"></line>
+                            <text x="156" y="95">R/2</text>
+                            <line x1="148" y1="210" x2="152" y2="210" stroke="#000720"></line>
+                            <text x="156" y="215">-R/2</text>
+                            <line x1="148" y1="270" x2="152" y2="270" stroke="#000720"></line>
+                            <text x="156" y="275">-R</text>
+                            <polygon points="300,150 295,155 295, 145" fill="#000720" stroke="#000720"></polygon>
+                            <polygon points="150,0 145,5 155,5" fill="#000720" stroke="#000720"></polygon>
+
+                            <rect x="150" y="150" width="120" height="60" fill-opacity="0.4" stroke="blue" fill="lightblue"></rect>
+                            <polygon points="150,150 90,150 150,30" fill-opacity="0.4" stroke="blue" fill="lightblue"></polygon>
+                            <path d="M 150 150 L 90 150 A 60 60 1 0 0 150 210 L Z" fill-opacity="0.4" stroke="blue" fill="lightblue"></path>
+                        </svg>
+                    </h:commandLink>
+                    <h:inputHidden id="x" value="#{pointBean.x}"/>
+                    <h:inputHidden id="y" value="#{pointBean.y}"/>
+                    <h:inputHidden id="r" value="#{pointBean.r}"/>
+                </h:form>
+            </div>
+        </div>
+
+
+        <div class="starter">
+            <h:link outcome="starter">Вернуться на стартовую страницу</h:link>
+            <br/>
+        </div>
+
+
+        <div class="table">
+            <div class="name_of_table">Results</div>
+            <p:dataTable id="result_table"  var="point" value="#{beansCollection.uploadPoints()}">
+                <p:column headerText="X">
+                    <h:outputText value="#{point.x}"/>
+                </p:column>
+                <p:column headerText="Y">
+                    <h:outputText value="#{point.y}"/>
+                </p:column>
+                <p:column headerText="R">
+                    <h:outputText value="#{point.r}"/>
+                </p:column>
+
+                <p:column headerText="Result">
+                    <h:outputText  value="#{point.result ? 'Попал' : 'Не попал' }"/>
+                </p:column>
+
+                <p:column headerText="Current time">
+                    <h:outputText value="#{point.createdAt}" >
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" timeZone="Europe/Moscow" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Execution time (mcs)">
+                    <h:outputText value="#{point.executionTime}"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </div>
+
+    <h:outputScript library="js" name="script.js" target="body"/>
+
+
+</h:body>
+
+</html>

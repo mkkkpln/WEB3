@@ -1,5 +1,6 @@
 #result_table{
-    border:5px solid #ffdefb;
+    opacity: 0.9;
+    border:1px solid #ffdefb;
     border-radius: 20px;
     padding: 0px;
     height: 400px;
@@ -17,5 +18,15 @@
 
 }
 #result_table th{
+    opacity: 0.7;
     background-color: #ffdefb;
+}
+
+#result_table_head {
+    opacity: 0.7;
+    background-color: #ffdefb;
+}
+.name_of_table {
+    text-align: center;
+    font-size: 18px;
 }
