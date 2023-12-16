@@ -11,19 +11,19 @@
     </managed-bean>
 
     <navigation-rule>
-        <from-view-id>../views/starter.xhtml</from-view-id>
+        <from-view-id>views/starter.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>main</from-outcome>
-            <to-view-id>../views/main.xhtml</to-view-id>
+            <to-view-id>views/main.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>../views/main.xhtml</from-view-id>
+        <from-view-id>views/main.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>starter</from-outcome>
-            <to-view-id>../views/starter.xhtml</to-view-id>
+            <to-view-id>views/starter.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

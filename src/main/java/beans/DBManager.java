@@ -2,14 +2,12 @@ package beans;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
 public class DBManager {
     private static DBManager instance = null;
-
     public final EntityManager entityManager;
 
     private DBManager() {
